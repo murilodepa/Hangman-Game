@@ -1,0 +1,64 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <windows.h>
+#define Tam 10
+
+int main()
+{
+
+    int i=0, j=0, Aux=0, Saida=0, Rand=0; //Declaração das variáveis e inicializando com "0"
+    int Vet_Rand[10]; //Declarando Vet_Rand e inicializando com um tamanho físico de 10 posições
+
+    for(i=0; i<Tam; i++)  //Loop para percorrer todo o vetor
+    {
+        //Seta como 99 para não correr
+        Vet_Rand[i] = 99;  //risco de um lixo do vetor ser
+    }                      //a um numero aleatório
+
+    i=0; //Inicializa a variável "i" com "0"
+    printf("\n   Impressao de posicao por posicao dos vetores!\n\n");
+
+    while(Saida < Tam) //Condição de Loop para analisar esse vetor 10 vezes
+    {
+        //E gerar 10 números aleatórios
+        do //Condição de consistência para analisar e o número já foi "Gerado"
+        {
+            srand( (unsigned)time(NULL) ); //Serve para alterar o "tempo nulo" da geração da Seed(Semente)
+            Rand = (rand () % Tam);         //Gera números aleatórios de "0" a "9"
+            Aux=0;                         //Inicializa a variável "Aux" com "0"
+
+            for(i=0; i<Tam; i++) //Loop para analisar o vetor inteiro as suas "10" posições
+            {
+                if(Vet_Rand[i] == Rand) //Se caso o valor gerado já tiver sido gerado e armazenado
+                {
+                    //no meu Vetor Rand...
+                    Aux=1;              //Variável "Aux" passa a valer "1"
+                }
+            }
+        }
+        while(Aux == 1); //Enquanto a variável "Aux" for igual a "1" fica nesse loop para gerar outro número
+
+        Vet_Rand[j] = Rand; //Vet_Rand na posição j recebe um valor ainda não recebido
+        printf("\n"); //Pula uma linhas
+
+        for(i=0; i<Tam; i++) //for para imprimir todo o vetor, posição por posição para análise
+        {
+            printf(" |%2d|", Vet_Rand[i]); //Imprimi posição por posição do vetor
+            Sleep(250); //O programa "Dorme por 250 milisegundos para ser analisado se realmente
+        }               //não está sendo gerado nenhum número repetido
+        j++;     //incrementa "1" na variável "j"
+        Saida++; //incrementa "1" na variável "saída"
+    }
+
+    printf("\n\n"); //pula duas linhas
+
+    printf("  Como podemos observar nenhum numero se repete <Linha da minha matriz>\n");
+    printf("  Portanto nenhum animal da minha forca ira se repetir!");
+    printf("\n"); //pula uma linhas
+
+    return 0; //Sai do programa
+}
+
+
