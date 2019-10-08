@@ -27,10 +27,10 @@
 * #include <time.h>        //"Utilizada Para Usar o Tempo Cronológico Como Semente (SEED)"
 * #include <windows.h>     //"Utilizada Para Usar a Função "Sleep","Dormir" por Alguns Milissegundos.
 
-   * **Observação:** Para desenvolver este projeto, precisa apenas de conhecimentos básicos sobre lógica de programação e linguagem de programação Assembly 8086.
+   * **Observação:** Para desenvolver este projeto, precisa apenas de conhecimentos básicos sobre lógica de programação e linguagem de programação C.
 
 ### Guia de instalação
-* Para executar o programa na linguagem C, no qual o algoritmo foi realizado, necessita apenas de um compilador e uma IDE que compile e execute essa linguagem de programação, no caso do projeto,foi utilizao o Code::Blocks e o compilador Mingw do GCC como já descrito, não precisando de nenhuma outra ferramenta adicional ou especial, esse programa pode ser obtido no link acima, mas também, pode estar sendo utilizado outros softwares para o desenvolvimento deste projeto ou similiar.
+* Para executar o programa na linguagem C, no qual o algoritmo foi realizado, necessita apenas de um compilador e uma IDE que compile e execute essa linguagem de programação, no caso do projeto, foi utilizao o Code::Blocks e o compilador Mingw do GCC como já descrito, não precisando de nenhuma outra ferramenta adicional ou especial, esse programa pode ser obtido no link acima, mas também, pode estar sendo utilizado outros softwares para o desenvolvimento deste projeto ou similiar.
 
 ### Desenvolvimento
 * Git clone https://github.com/murilodepa/Jogo-da-Forca-de-Animais
