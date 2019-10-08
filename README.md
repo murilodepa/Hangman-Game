@@ -19,14 +19,13 @@
 * <a> [Code::Blocks: Necessário para desenvolvimento do projeto](http://www.codeblocks.org/downloads/26)
  
  #### Bibliotecas
-#include <conio.h>       //"Utilizada a Função "Getche()" da Biblioteca
-#include <ctype.h>       //"Funções Adicionais Para Usar com Caracteres"
-#include <stdio.h>       //"Cabeçalho Padrão de (Entrada/Saída)"
-#include <stdlib.h>      //"Cabeçalho da Biblioteca de Propósito Geral Padrão"
-#include <string.h>      //"Biblioteca com várias funções Para Manipular Strings"
-#include <time.h>        //"Utilizada Para Usar o Tempo Cronológico Como Semente (SEED)"
-#include <windows.h>     //"Utilizada Para Usar a Função "Sleep","Dormir" por Alguns Milissegundos.
-
+* #include <conio.h>       //"Utilizada a Função "Getche()" da Biblioteca
+* #include <ctype.h>       //"Funções Adicionais Para Usar com Caracteres"
+* #include <stdio.h>       //"Cabeçalho Padrão de (Entrada/Saída)"
+* #include <stdlib.h>      //"Cabeçalho da Biblioteca de Propósito Geral Padrão"
+* #include <string.h>      //"Biblioteca com várias funções Para Manipular Strings"
+* #include <time.h>        //"Utilizada Para Usar o Tempo Cronológico Como Semente (SEED)"
+* #include <windows.h>     //"Utilizada Para Usar a Função "Sleep","Dormir" por Alguns Milissegundos.
 * **Observação:** Para desenvolver este jogo, precisa apenas de conhecimentos básicos sobre lógica de programação e linguagem de programação C.
 
 ### Guia de instalação
