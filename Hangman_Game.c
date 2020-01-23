@@ -41,114 +41,84 @@ int Check_Repeat_Word (int []);
 /// PRINTING THE INITIAL HEADER
 void Header (int );
 
+/// STARTING THE VARIABLES
+void Starting_Variables(int *, int *, int *, int *, int [], char [][Columns], char [], char **);
+
 //#################################### MAIN #####################################
 int main()
 {
     int Cont1, Cont2, Row_Random, Flag_Mistakes, Word_Length, Hits, Mistakes, Equal_Letter;
     int Aux1=0, Aux2=0, Win=0, Attempts=0, Quantity_of_Words = 50;
 
+    char Vector_Mistakes[Wrong_Letters], *Vector_Hits;
+
     int Repeated_Words[Rows];
 
-    for(Cont1=0; Cont1<Rows; Cont1++)
-    {
+    // Preventing from trash
+    for(Cont1 = 0; Cont1 < Rows; Cont1++)
         Repeated_Words[Cont1] = 99;
-    }
 
     char Letter;
     char Output;
 
-    char Animals[Rows][Columns] = {"MACACO",
-                                   "LEAO",
-                                   "TIGRE DE BENGALA",
-                                   "PEIXE ESPADA",
-                                   "JACARE",
-                                   "COELHO",
-                                   "CACHORRO",
-                                   "CAPIVARA",
-                                   "LOBO GUARA",
-                                   "SURICATA",
-                                   "COBRA",
-                                   "TAMANDUA BANDEIRA",
-                                   "TARTARUGA",
-                                   "GIRAFA",
-                                   "ZEBRA",
-                                   "ELEFANTE",
-                                   "ESTRELA DO MAR",
-                                   "RINOCERONTE",
-                                   "CAMELO",
-                                   "LEOPARDO",
-                                   "URSO PANDA",
-                                   "CANGURU",
-                                   "JAVALI",
-                                   "BUFALO",
-                                   "PANTERA",
-                                   "PINGUIM",
-                                   "TUCANO",
-                                   "BICHO PREGUICA",
-                                   "HIPOPOTAMO",
-                                   "PORCO ESPINHO",
-                                   "CAVALO MARINHO",
-                                   "LAGARTO",
-                                   "LONTRA",
-                                   "ARARA AZUL",
-                                   "TUBARAO MARTELO",
-                                   "CAMALEAO",
-                                   "GUAXINIM",
-                                   "MAMUTE",
-                                   "DINOSSAURO",
-                                   "CORUJA",
-                                   "DRAGAO DE KOMODO",
-                                   "FLAMINGO",
-                                   "GOLFINHO",
-                                   "BALEIA JUBARTE",
-                                   "OVELHA",
-                                   "BEIJA FLOR",
-                                   "MORCEGO",
-                                   "FORMIGA",
-                                   "ONCA PINTADA",
-                                   "PAPAGAIO"
-                                  };
+    char Words[Rows][Columns] = {"MACACO",
+                                 "LEAO",
+                                 "TIGRE DE BENGALA",
+                                 "PEIXE ESPADA",
+                                 "JACARE",
+                                 "COELHO",
+                                 "CACHORRO",
+                                 "CAPIVARA",
+                                 "LOBO GUARA",
+                                 "SURICATA",
+                                 "COBRA",
+                                 "TAMANDUA BANDEIRA",
+                                 "TARTARUGA",
+                                 "GIRAFA",
+                                 "ZEBRA",
+                                 "ELEFANTE",
+                                 "ESTRELA DO MAR",
+                                 "RINOCERONTE",
+                                 "CAMELO",
+                                 "LEOPARDO",
+                                 "URSO PANDA",
+                                 "CANGURU",
+                                 "JAVALI",
+                                 "BUFALO",
+                                 "PANTERA",
+                                 "PINGUIM",
+                                 "TUCANO",
+                                 "BICHO PREGUICA",
+                                 "HIPOPOTAMO",
+                                 "PORCO ESPINHO",
+                                 "CAVALO MARINHO",
+                                 "LAGARTO",
+                                 "LONTRA",
+                                 "ARARA AZUL",
+                                 "TUBARAO MARTELO",
+                                 "CAMALEAO",
+                                 "GUAXINIM",
+                                 "MAMUTE",
+                                 "DINOSSAURO",
+                                 "CORUJA",
+                                 "DRAGAO DE KOMODO",
+                                 "FLAMINGO",
+                                 "GOLFINHO",
+                                 "BALEIA JUBARTE",
+                                 "OVELHA",
+                                 "BEIJA FLOR",
+                                 "MORCEGO",
+                                 "FORMIGA",
+                                 "ONCA PINTADA",
+                                 "PAPAGAIO"
+                                };
+
 
     Header(Quantity_of_Words);
 
-    do
+    while(1)
     {
-        Cont1=0;
-        Cont2=0;
-        Row_Random=0;
-        Flag_Mistakes=1;
-        Word_Length=0;
-        Hits=0;
-        Mistakes=0;
-        Equal_Letter=0;
-        Word_Length=0;
-
-        Check_Repeat_Word (Repeated_Words);
-
-        Repeated_Words[Aux2] = Row_Random;
-        Aux2++;
-
-        Word_Length = strlen(Animals[Row_Random]);
-        Word_Length = Word_Length;
-
-        char Vector_Mistakes[Wrong_Letters];
-        for(Cont1=0; Cont1<Wrong_Letters; Cont1++)
-        {
-            Vector_Mistakes[Cont1] = '\0';
-        }
-
-        char Vector_Hits[Word_Length];
-
-        for(Cont1=0; Cont1<Word_Length; Cont1++)
-        {
-            Vector_Hits[Cont1] = '_';
-            if(Animals[Row_Random][Cont1] == 32)
-            {
-                Vector_Hits[Cont1] = 32;
-                Word_Length--;
-                Hits+=1;
-            }
-        }
+        Starting_Variables(&Row_Random, &Word_Length, &Hits, &Mistakes, Repeated_Words, Words, Vector_Mistakes, &Vector_Hits);
 
         while(Mistakes < 8)
         {
@@ -158,7 +128,7 @@ int main()
             case 0:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -195,7 +165,7 @@ int main()
             case 1:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -232,7 +202,7 @@ int main()
             case 2:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -269,7 +239,7 @@ int main()
             case 3:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -306,7 +276,7 @@ int main()
             case 4:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -343,7 +313,7 @@ int main()
             case 5:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -380,7 +350,7 @@ int main()
             case 6:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -419,7 +389,7 @@ int main()
                 Attempts++;
                 Quantity_of_Words--;
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -459,7 +429,7 @@ int main()
             {
                 for(Cont1=0; Cont1<Word_Length; Cont1++)
                 {
-                    Vector_Hits[Cont1] = Animals[Row_Random][Cont1];
+                    Vector_Hits[Cont1] = Words[Row_Random][Cont1];
                     printf(" %c", Vector_Hits[Cont1]);
                 }
 
@@ -514,7 +484,7 @@ int main()
                 Sleep(1000);
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
+                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -614,7 +584,7 @@ int main()
 
                 for(Cont1=0; Cont1<Word_Length; Cont1++)
                 {
-                    if(Animals[Row_Random][Cont1] == Letter)
+                    if(Words[Row_Random][Cont1] == Letter)
                     {
                         Vector_Hits[Cont1] = Letter;
                         Hits++;
@@ -632,7 +602,6 @@ int main()
             }
         }
     }
-    while (Output != 'N' || Output != 'n');
 
     return 0;
 }
@@ -819,6 +788,44 @@ void Header (int Quantity_of_Words)
         Letter = getche();
     }
     while(Letter != 13);
+}
+//###############################################################################
+
+/// STARTING THE VARIABLES
+void Starting_Variables(int *Row_Random, int *Word_Length, int *Hits, int *Mistakes, int Repeated_Words[], char Words[][Columns], char Vector_Mistakes[], char **Vector_Hits)
+{
+    int Cont=0;
+
+    *Row_Random=0;
+    *Word_Length=0;
+    *Hits=0;
+    *Mistakes=0;
+    *Word_Length=0;
+
+    *Row_Random = Check_Repeat_Word(Repeated_Words);
+
+    while(Repeated_Words[Cont] != 99)
+        Cont+=1;
+
+    Repeated_Words[Cont] = *Row_Random;
+
+    *Word_Length = strlen(Words[*Row_Random]);
+
+    *Vector_Hits = (char*) calloc(*Word_Length, sizeof(char));
+
+    for(Cont = 0; Cont < Wrong_Letters; Cont++)
+        Vector_Mistakes[Cont] = '\0';
+
+    for(Cont = 0; Cont < *Word_Length; Cont++)
+    {
+        (*Vector_Hits)[Cont] = '_';
+
+        if(Words[*Row_Random][Cont] == 32)
+        {
+            (*Vector_Hits)[Cont] = 32;
+            *Hits += 1;
+        }
+    }
 }
 //###############################################################################
 
