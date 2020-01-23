@@ -35,6 +35,9 @@
 /// CHANGES COLOR OF PRINTED CHARACTERS
 void Choose_Color (int );
 
+/// CHECKING THE REPEAT WORD
+int Check_Repeat_Word (int []);
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -133,22 +136,7 @@ int main()
         Equal_Letter=0;
         Word_Length=0;
 
-        do
-        {
-            srand( (unsigned)time(NULL) );
-            Row_Random = (rand () % 50);
-            Aux1=0;
-
-            for(Cont1=0; Cont1<Rows; Cont1++)
-            {
-                if(Repeated_Words[Cont1] == Row_Random)
-                {
-
-                    Aux1=1;
-                }
-            }
-        }
-        while(Aux1 == 1);
+        Check_Repeat_Word (Repeated_Words);
 
         Repeated_Words[Aux2] = Row_Random;
         Aux2++;
@@ -679,5 +667,28 @@ void Choose_Color (int Color)
     HANDLE Output;
     Output = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(Output,Color);
+}
+//###############################################################################
+
+/// CHECKING THE REPEAT WORD
+int Check_Repeat_Word (int Repeated_Words[])
+{
+    int Aux, Cont, Row_Random;
+
+    do
+    {
+        srand( (unsigned)time(NULL) );
+        Row_Random = (rand () % 50);
+        Aux=0;
+
+        for(Cont=0; Cont<Rows; Cont++)
+        {
+            if(Repeated_Words[Cont] == Row_Random)
+                Aux=1;
+        }
+    }
+    while(Aux == 1);
+
+    return Row_Random;
 }
 //###############################################################################
