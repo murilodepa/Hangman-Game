@@ -44,6 +44,9 @@ void Header (int );
 /// STARTING THE VARIABLES
 void Starting_Variables(int *, int *, int *, int *, int [], char [][Columns], char [], char **);
 
+/// PRINTING GAME INFORMATION
+void Game_Info (int, int, int, int, int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -126,18 +129,7 @@ int main()
             {
 
             case 0:
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -163,18 +155,7 @@ int main()
                 break;
 
             case 1:
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -200,18 +181,7 @@ int main()
                 break;
 
             case 2:
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -237,18 +207,7 @@ int main()
                 break;
 
             case 3:
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -274,18 +233,7 @@ int main()
                 break;
 
             case 4:
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -311,18 +259,7 @@ int main()
                 break;
 
             case 5:
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -348,18 +285,7 @@ int main()
                 break;
 
             case 6:
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -385,20 +311,7 @@ int main()
                 break;
 
             default :
-                system("cls");
-                Attempts++;
-                Quantity_of_Words--;
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________   ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 7-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n");
+                Game_Info((Quantity_of_Words-=1), Win, (Attempts+=1), Word_Length, Mistakes--);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -477,24 +390,8 @@ int main()
             }
             if(Hits == Word_Length)
             {
-                Win++;
-                Attempts++;
-                Quantity_of_Words--;
-
                 Sleep(1000);
-                system("cls");
-                printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT Words STILL IN THE GAME!!! |     ", Quantity_of_Words);
-                printf("\n     _______________________________________________     ");
-                printf("\n   ____________________________________________________  ");
-                printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
-                printf("\n  |___________________________________________________|");
-                printf("\n   ___________________________________________________  ");
-                printf("\n  |            WORD LENGTH: %d               |", Word_Length);
-                printf("\n  |_______________  POSSIBILITIES: %d  _________________|", 6-Mistakes);
-                printf("\n                 |___________________|");
-                printf("\n\n       CONGRATULATIONS YOU HIT THE COMPLETE WORD!");
-                printf("\n\n");
+                Game_Info((Quantity_of_Words-=1), (Win+=1), (Attempts+=1), Word_Length, Mistakes);
                 printf("    +------------------------------+          \n");
                 printf("    |                              |          \n");
                 printf("    |                              |          \n");
@@ -829,3 +726,78 @@ void Starting_Variables(int *Row_Random, int *Word_Length, int *Hits, int *Mista
 }
 //###############################################################################
 
+/// PRINTING GAME INFORMATION
+void Game_Info(int Quantity_of_Words, int Win, int Attempts, int Word_Length, int Mistakes)
+{
+    system("cls");
+
+    Choose_Color(Blue);
+    printf("\n   \332");
+
+    int Cont;
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("   HAVE %d DISTINCT WORDS STILL IN THE GAME!!", Quantity_of_Words);
+
+    Choose_Color(Blue);
+    printf("   \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("           YOU GOT %d OF %d WORDS TRIED", Win, Attempts);
+
+    Choose_Color(Blue);
+    printf("\t    \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("                 WORD LENGTH: %d", Word_Length);
+
+    Choose_Color(Blue);
+    printf("\t\t    \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("                POSSIBILITIES: %d", 6-Mistakes);
+
+    Choose_Color(Blue);
+    printf("\t\t    \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n\n");
+}
+//###############################################################################
