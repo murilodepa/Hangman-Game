@@ -1,4 +1,4 @@
-/* DESCRIPTION: HANGMAN GAME WITH 50 ANIMALS SELECTED.
+/* DESCRIPTION: HANGMAN GAME.
 
             PONTIFICAL CATHOLIC UNIVERSITY OF CAMPINAS - PUCC
             STUDENT NAME: MURILO DE PAULA ARAUJO
@@ -11,21 +11,31 @@
 */
 
 //################################# LIBRARY #################################
-#include <conio.h>       //"Used the function "Getche()"
-#include <ctype.h>       //"ctions added to work with characters"
-#include <stdio.h>       //"Standard Header (In/Out)"
-#include <stdlib.h>      //"Standard Header"
-#include <string.h>      //"Manipulate Strings"
-#include <time.h>        //"Used the chronological time"
-#include <windows.h>     //"Used to the function "Sleep"
+#include <conio.h>       // "Used the function "Getche()"
+#include <ctype.h>       // "Fuctions added to work with characters"
+#include <stdio.h>       // "Standard Header (In/Out)"
+#include <stdlib.h>      // "Standard Header"
+#include <string.h>      // "Manipulate Strings"
+#include <time.h>        // "Used the chronological time"
+#include <windows.h>     // "Used to the function "Sleep"
 
 #define Columns 50
 #define Rows  50
-#define Wrong_Letters 30
+#define Wrong_Letters 10
+
+#define Blue 9
+#define Green 10
+#define Red 12
+#define White 15
+//###############################################################################
 
 
+//#################### PROTOTYPE OF FUNCTIONS USED IN MAIN ######################
 
+/// CHANGES COLOR OF PRINTED CHARACTERS
+void Choose_Color (int );
 
+//#################################### MAIN #####################################
 int main()
 {
     int Cont1, Cont2, Row_Random, Flag_Mistakes, Word_Length, Hits, Mistakes, Equal_Letter;
@@ -651,3 +661,23 @@ int main()
 
     return 0;
 }
+//###############################################################################
+
+/// CHANGES COLOR OF PRINTED CHARACTERS
+void Choose_Color (int Color)
+{
+    /*
+    0 = Black		 8  = Grey
+    1 = Blue		 9  = Light Blue
+    2 = Green		 10 = Light Green
+    3 = Green-Water	 11 = Light Green-Water
+    4 = Red      	 12 = Light Red
+    5 = Purple		 13 = Lilac
+    6 = Yellow		 14 = Light Yellow
+    7 = White		 15 = Bright White
+    */
+    HANDLE Output;
+    Output = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(Output,Color);
+}
+//###############################################################################
