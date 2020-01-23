@@ -38,11 +38,14 @@ void Choose_Color (int );
 /// CHECKING THE REPEAT WORD
 int Check_Repeat_Word (int []);
 
+/// PRINTING THE INITIAL HEADER
+void Header (int );
+
 //#################################### MAIN #####################################
 int main()
 {
     int Cont1, Cont2, Row_Random, Flag_Mistakes, Word_Length, Hits, Mistakes, Equal_Letter;
-    int Aux1=0, Aux2=0, Win=0, Attempts=0, Quantity_of_Animals = 50;
+    int Aux1=0, Aux2=0, Win=0, Attempts=0, Quantity_of_Words = 50;
 
     int Repeated_Words[Rows];
 
@@ -106,23 +109,7 @@ int main()
                                    "PAPAGAIO"
                                   };
 
-    do
-    {
-        system("cls");
-
-        printf("               ________________________________________              \n");
-        printf("   ____________|WELCOME TO THE TRADITIONAL HANGMAN GAME|_____________ \n");
-        printf("   |              THIS GAME CONTAINS SEVERAL ANIMALS| \n");
-        printf("   _________________________________________________________________ \n");
-        printf("\n\n");
-        printf("\t       ________________________________________                    \n");
-        printf("\t       |HIT ENTER ON YOUR KEYBOARD TO START THE GAME!|                    \n");
-        printf("\t       ________________________________________                    \n");
-
-
-        Letter = getche();
-    }
-    while(Letter != 13);
+    Header(Quantity_of_Words);
 
     do
     {
@@ -171,7 +158,7 @@ int main()
             case 0:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -208,7 +195,7 @@ int main()
             case 1:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -245,7 +232,7 @@ int main()
             case 2:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -282,7 +269,7 @@ int main()
             case 3:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -319,7 +306,7 @@ int main()
             case 4:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -356,7 +343,7 @@ int main()
             case 5:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -393,7 +380,7 @@ int main()
             case 6:
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -430,9 +417,9 @@ int main()
             default :
                 system("cls");
                 Attempts++;
-                Quantity_of_Animals--;
+                Quantity_of_Words--;
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -522,12 +509,12 @@ int main()
             {
                 Win++;
                 Attempts++;
-                Quantity_of_Animals--;
+                Quantity_of_Words--;
 
                 Sleep(1000);
                 system("cls");
                 printf("\n     _______________________________________________ ");
-                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Animals);
+                printf("\n     | HAVE %d DISTINCT ANIMALS STILL IN THE GAME!!! |     ", Quantity_of_Words);
                 printf("\n     _______________________________________________     ");
                 printf("\n   ____________________________________________________  ");
                 printf("\n  | YOU GOT %d OF %d WORDS TRIED  |", Win, Attempts);
@@ -586,7 +573,7 @@ int main()
                 while(Output != 'Y' && Output != 'y' && Output != 'N' && Output != 'n');
             }
 
-            if(Quantity_of_Animals <= 0)
+            if(Quantity_of_Words <= 0)
             {
                 printf("\n GOOD GAME, NO MORE DISTINCT WORD!!!");
                 printf("\n STARTS THE GAME AGAIN TO GET A BETTER SCORE!!!\n\n");
@@ -692,3 +679,146 @@ int Check_Repeat_Word (int Repeated_Words[])
     return Row_Random;
 }
 //###############################################################################
+
+/// PRINTING THE INITIAL HEADER
+void Header (int Quantity_of_Words)
+{
+    char Letter;
+    int Cont;
+
+    do
+    {
+        system("cls");
+
+        Choose_Color(Blue);
+
+        printf("\n   \332\304\304");
+
+        for(Cont = 0; Cont < 6; Cont++)
+            printf("\304\304\304\304\304\304\304\304\304");
+
+        printf("\277 \n   \263\t  ");
+
+        /// HANGMAN
+        Choose_Color(Green);
+        printf("*   * ***** *   * *****  **   ** ***** *   *");
+
+        Choose_Color(Blue);
+        printf("\t    \263 \n   \263\t  ");
+
+        Choose_Color(Green);
+        printf("*   * *   * **  * *      * * * * *   * **  *");
+
+        Choose_Color(Blue);
+        printf("\t    \263 \n   \263\t  ");
+
+        Choose_Color(Green);
+        printf("***** ***** * * * *  *** *  *  * ***** * * *");
+
+        Choose_Color(Blue);
+        printf("\t    \263 \n   \263\t  ");
+
+        Choose_Color(Green);
+        printf("*   * *   * *  ** *   *  *     * *   * *  **");
+
+        Choose_Color(Blue);
+        printf("\t    \263 \n   \263\t  ");
+
+        Choose_Color(Green);
+        printf("*   * *   * *   * *****  *     * *   * *   *");
+
+        Choose_Color(Blue);
+        printf("\t    \263 \n   \263\t\t\t\t\t\t\t    \263 \n   \263\t\t   ");
+
+        /// GAME
+        Choose_Color(Green);
+        printf("*****  ***** **   ** *****");
+
+        Choose_Color(Blue);
+        printf("\t\t    \263 \n   \263\t\t   ");
+
+        Choose_Color(Green);
+        printf("*      *   * * * * * *");
+
+        Choose_Color(Blue);
+        printf("\t\t    \263 \n   \263\t\t   ");
+
+        Choose_Color(Green);
+        printf("*  *** ***** *  *  * *****");
+
+        Choose_Color(Blue);
+        printf("\t\t    \263 \n   \263\t\t   ");
+
+        Choose_Color(Green);
+        printf("*   *  *   * *     * *");
+
+        Choose_Color(Blue);
+        printf("\t\t    \263 \n   \263\t\t   ");
+
+        Choose_Color(Green);
+        printf("*****  *   * *     * *****");
+
+        Choose_Color(Blue);
+        printf("\t\t    \263 \n   \300\304\304");
+
+        for(Cont = 0; Cont<6; Cont++)
+            printf("\304\304\304\304\304\304\304\304\304");
+
+        printf("\331 \n\n\n   \332");
+
+        for(Cont = 0; Cont < 9; Cont++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\304\304\277 \n   \263");
+
+        Choose_Color(Red);
+        printf("       WELCOME TO THE TRADITIONAL HANGMAN GAME!!!");
+
+        Choose_Color(Blue);
+        printf("\t    \263 \n   \300");
+
+        for(Cont = 0; Cont < 9; Cont++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\304\304\331 \n\n\n   \332");
+
+        for(Cont = 0; Cont < 9; Cont++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\304\304\277 \n   \263");
+
+        Choose_Color(Red);
+        printf("\t\t THIS GAME CONTAINS %d WORDS!!!", Quantity_of_Words);
+
+        Choose_Color(Blue);
+        printf("\t\t    \263 \n   \300");
+
+        for(Cont = 0; Cont < 9; Cont++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\304\304\331 \n\n\n   \332");
+
+        for(Cont = 0; Cont < 9; Cont++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\304\304\277 \n   \263");
+
+        Choose_Color(Green);
+        printf("    HIT ENTER ON YOUR KEYBOARD TO START THE GAME!!!");
+
+        Choose_Color(Blue);
+        printf("\t    \263 \n   \300");
+
+        for(Cont = 0; Cont < 9; Cont++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\304\304\331 \n\n\n");
+
+        Choose_Color(White);
+
+        Letter = getche();
+    }
+    while(Letter != 13);
+}
+//###############################################################################
+
