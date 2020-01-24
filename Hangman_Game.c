@@ -53,6 +53,9 @@ void Basic_Structure_Gallows (int );
 /// PRITING HEAD
 void Head (int );
 
+/// PRITING BODY
+void Body (int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -136,80 +139,29 @@ int main()
 
             case 0:
                 Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf(" ___|___                                      \n");
+                Basic_Structure_Gallows(Cont1);
+
+                for(Cont1 = 0; Cont1 < 9; Cont1++)
+                    printf("\n    \263 \n    \263 ");
+
+                printf("\n \304\304\304\301\304\304\304\n");
                 break;
 
             case 1:
                 Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                          ---------      \n");
-                printf("    |                          | ^   ^ |      \n");
-                printf("    |                          |   .   |      \n");
-                printf("    |                          |  ---  |      \n");
-                printf("    |                          ---------      \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf(" ___|___                                      \n");
+
+                Head(Cont1);
+
+                for(Cont1 = 0; Cont1 < 6; Cont1++)
+                    printf("\n    \263 \n    \263 ");
+
+                printf("\n    \263 \n \304\304\304\301\304\304\304\n");
                 break;
 
             case 2:
                 Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                          ---------      \n");
-                printf("    |                          | ^   ^ |      \n");
-                printf("    |                          |   .   |      \n");
-                printf("    |                          |  ---  |      \n");
-                printf("    |                          ---------      \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf(" ___|___                                      \n");
+
+                Body(Cont1);
                 break;
 
             case 3:
@@ -831,5 +783,22 @@ void Head(int Cont)
     printf("\n    \263 \t\t\t       \263   .   \263");
     printf("\n    \263 \t\t\t       \263  ---  \263");
     printf("\n    \263 \t\t\t       \300\304\304\304\302\304\304\304\331");
+}
+//###############################################################################
+
+/// PRITING BODY
+void Body(int Cont)
+{
+    Head(Cont);
+
+    for(Cont = 0; Cont < 2; Cont++)
+        printf("\n    \263 \t\t\t\t   \263 \n    \263 \t\t\t\t   \263");
+
+    printf("\n    \263 \t\t\t\t   \263");
+
+    for(Cont = 0; Cont < 4; Cont++)
+        printf("\n    \263 \n    \263");
+
+    printf("\n \304\304\304\301\304\304\304\n");
 }
 //###############################################################################
