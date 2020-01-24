@@ -56,6 +56,9 @@ void Head (int );
 /// PRITING BODY
 void Body (int );
 
+/// PRITING RIGHT ARM
+void Right_Arm (int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -166,28 +169,7 @@ int main()
 
             case 3:
                 Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                          ---------      \n");
-                printf("    |                          | ^   ^ |      \n");
-                printf("    |                          |   .   |      \n");
-                printf("    |                          |  ---  |      \n");
-                printf("    |                          ---------      \n");
-                printf("    |                              |          \n");
-                printf("    |                             /|          \n");
-                printf("    |                            / |          \n");
-                printf("    |                           /  |          \n");
-                printf("    |                          /   |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf(" ___|___                                      \n");
+                Right_Arm(Cont1);
                 break;
 
             case 4:
@@ -795,6 +777,26 @@ void Body(int Cont)
         printf("\n    \263 \t\t\t\t   \263 \n    \263 \t\t\t\t   \263");
 
     printf("\n    \263 \t\t\t\t   \263");
+
+    for(Cont = 0; Cont < 4; Cont++)
+        printf("\n    \263 \n    \263");
+
+    printf("\n \304\304\304\301\304\304\304\n");
+}
+//###############################################################################
+
+/// PRITING RIGHT ARM
+void Right_Arm(int Cont)
+{
+    Head(Cont);
+
+    printf("\n    \263 \t\t\t\t   \263");
+    printf("\n    \263 \t\t\t       \332\304\304\304\264");
+
+    for(Cont = 0; Cont < 2; Cont++)
+        printf("\n    \263 \t\t\t       \263   \263");
+
+    printf("\n    \263 \t\t\t       \305   \263");
 
     for(Cont = 0; Cont < 4; Cont++)
         printf("\n    \263 \n    \263");
