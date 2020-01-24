@@ -92,22 +92,21 @@ void Player_Playing (int, char [], char [], char [][Columns], int, int *, int *)
 /// NOTICE THAT THE PLAYER LOSE THE GAME
 void Notice_Lose (int *);
 
+/// THE PLAYER PLAYED WITH EVERY WORD
+void Game_Finished ();
+
 //#################################### MAIN #####################################
 int main()
 {
-    int Cont1, Cont2, Row_Random, Flag_Mistakes, Word_Length, Hits, Mistakes, Equal_Letter;
-    int Aux1=0, Aux2=0, Win=0, Attempts=0, Quantity_of_Words = 50;
+    int Cont = 0, Row_Random = 0, Hits = 0, Mistakes = 0, Word_Length = 0, Win = 0, Attempts = 0, Quantity_of_Words = 0;
 
     char Vector_Mistakes[Wrong_Letters], *Vector_Hits;
 
     int Repeated_Words[Rows];
 
     // Preventing from trash
-    for(Cont1 = 0; Cont1 < Rows; Cont1++)
-        Repeated_Words[Cont1] = 99;
-
-    char Letter;
-    char Output;
+    for(Cont = 0; Cont < Rows; Cont++)
+        Repeated_Words[Cont] = 99;
 
     char Words[Rows][Columns] = {"MACACO",
                                  "LEAO",
@@ -191,13 +190,12 @@ int main()
 
             if(Quantity_of_Words <= 0)
             {
-                printf("\n GOOD GAME, NO MORE DISTINCT WORD!!!");
-                printf("\n STARTS THE GAME AGAIN TO GET A BETTER SCORE!!!\n\n");
+                Game_Finished();
                 return 0;
             }
 
             if(Mistakes == 6)
-            Notice_Lose(&Mistakes);
+                Notice_Lose(&Mistakes);
 
             if(Mistakes<6)
                 Player_Playing(Word_Length, Vector_Hits, Vector_Mistakes, Words, Row_Random, &Hits, &Mistakes);
@@ -965,5 +963,42 @@ void Notice_Lose(int *Mistakes)
 
     *Mistakes+=1;
     Sleep(1800);
+}
+//###############################################################################
+
+/// THE PLAYER PLAYED WITH EVERY WORD
+void Game_Finished()
+{
+    int Cont;
+
+    system("cls");
+
+    Choose_Color(Blue);
+    printf("\n\n   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("       GOOD GAME, NO MORE DISTINCT WORD!!");
+
+    Choose_Color(Blue);
+    printf("\t    \263 \n   \263");
+
+    Choose_Color(Red);
+    printf(" STARTS THE GAME AGAIN TO GET A BETTER SCORE!!!");
+
+    Choose_Color(Blue);
+    printf(" \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n\n\n\n\n ");
+
+    Choose_Color(White);
+
 }
 //###############################################################################
