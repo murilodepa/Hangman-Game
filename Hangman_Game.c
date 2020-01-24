@@ -65,6 +65,9 @@ void Left_Arm (int );
 /// PRITING RIGHT LEG
 void Right_Leg (int );
 
+/// PRITING LEFT LEG
+void Left_Leg (int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -195,28 +198,7 @@ int main()
 
             case 6:
                 Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                          ---------      \n");
-                printf("    |                          | x   x |      \n");
-                printf("    |                          |   .   |      \n");
-                printf("    |                          |   O   |      \n");
-                printf("    |                          ---------      \n");
-                printf("    |                       -------|-------   \n");
-                printf("    |                             /|\\        \n");
-                printf("    |                            / | \\       \n");
-                printf("    |                           /  |  \\      \n");
-                printf("    |                          /   |   \\     \n");
-                printf("    |                             / \\        \n");
-                printf("    |                            /   \\       \n");
-                printf("    |                           /     \\      \n");
-                printf("    |                          /       \\     \n");
-                printf("    |                         /         \\    \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf(" ___|___                                      \n");
+                Left_Leg(Cont1);
                 break;
 
             default :
@@ -797,6 +779,30 @@ void Right_Leg(int Cont)
     printf("\n    \263 \t\t\t          / \n    \263 \t\t\t         /");
     printf("\n    \263 \t\t\t        / \n    \263 \t\t\t       /");
     printf("\n    \263  \t\t\t      / \n    \263 ");
+    printf("\n    \263 \n    \263 \n \304\304\304\301\304\304\304\n");
+}
+//###############################################################################
+
+/// PRITING LEFT LEG
+void Left_Leg(int Cont)
+{
+    Basic_Structure_Gallows(Cont);
+
+    printf("\n    \263 \t\t\t       \332\304\304\304\301\304\304\304\277");
+    printf("\n    \263 \t\t\t       \263 x   x \263");
+    printf("\n    \263 \t\t\t       \263   .   \263");
+    printf("\n    \263 \t\t\t       \263   +   \263");
+    printf("\n    \263 \t\t\t       \300\304\304\304\302\304\304\304\331");
+    printf("\n    \263 \t\t\t\t\300\304\304\305\304\304\331");
+    printf("\n    \263 \t\t\t       \332\304\304\304\305\304\304\304\277");
+
+    for(Cont = 0; Cont < 2; Cont++)
+        printf("\n    \263 \t\t\t       \263   \263   \263");
+
+    printf("\n    \263 \t\t\t       \305   \263   \305");
+    printf("\n    \263 \t\t\t          / \\ \n    \263 \t\t\t         /   \\");
+    printf("\n    \263 \t\t\t        /     \\ \n    \263 \t\t\t       /       \\");
+    printf("\n    \263  \t\t\t      /         \\ \n    \263 ");
     printf("\n    \263 \n    \263 \n \304\304\304\301\304\304\304\n");
 }
 //###############################################################################
