@@ -77,6 +77,9 @@ int Restart_Or_Exit ();
 /// THE PLAYER MISSED THE GAME
 int Player_Lose (int, char [], char [][Columns], int, int *);
 
+/// EMPTY HANGMAN AND HAPPY PERSON (WIN)
+void Gallows_And_Happy_Person (int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -869,4 +872,28 @@ int Player_Lose(int Word_Length, char Vector_Hits[], char Words[][Columns], int 
     return Restart_Or_Exit();
 }
 //###############################################################################
+
+/// EMPTY HANGMAN AND HAPPY PERSON (WIN)
+void Gallows_And_Happy_Person(int Cont)
+{
+
+    Basic_Structure_Gallows(Cont);
+
+    printf("\n    \263 \t\t\t\t  /\301\\ \n    \263 \t\t\t\t /   \\ \n    \263 \t\t\t\t/     \\");
+    printf("\n    \263 \t\t\t       \300\304\304\304\304\304\304\304\331");
+    printf("\n    \263 \t\t\332\304\304\304\304\304\304\304\277");
+    printf("\n    \263      \302    \263 ^   ^ \263    \302    ");
+    printf("\n    \263      \263    \263   .   \263    \263    ");
+    printf("\n    \263      \\    \263 [___] \263    /   ");
+    printf("\n    \263       \\   \300\304\304\304\304\304\304\304\331   / ");
+    printf("\n    \263 \t     \\      \263      / ");
+    printf("\n    \263 \t      \\\304\304\304\304\304\263\304\304\304\304\304/ ");
+    printf("\n    \263 \t\t    \263 \n    \263 \t\t    \263 \n    \263 \t\t    \263");
+    printf("\n    \263 \t\t   / \\ \n    \263 \t\t  /   \\       ");
+    printf("\n    \263 \t\t /     \\ \n    \263 \t\t/       \\     ");
+    printf("\n \304\304\304\301\304\304\304      \304\304\331       \300\304\304\n");
+}
+//###############################################################################
+
+
 
