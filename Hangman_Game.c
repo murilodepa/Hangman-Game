@@ -74,6 +74,9 @@ void Check_Possibilities_Priting_Gallows (int, int*, int, int*, int );
 /// EXIT OR RESTART OF GAME
 int Restart_Or_Exit ();
 
+/// THE PLAYER MISSED THE GAME
+int Player_Lose (int, char [], char [][Columns], int, int *);
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -156,34 +159,9 @@ int main()
 
             if(Mistakes >= 7)
             {
-                for(Cont1=0; Cont1<Word_Length; Cont1++)
-                {
-                    Vector_Hits[Cont1] = Words[Row_Random][Cont1];
-                    printf(" %c", Vector_Hits[Cont1]);
-                }
-
-                printf("\n\n");
-                printf("\t      WHAT A PITY!\n");
-                printf("     TRY AGAIN, YOU CAN!\n\n");
-                printf("   DO WANT TO PLAY AGAIN <Y / N> !?\n");
-
-                do
-                {
-                    Output = getche();
-
-                    if(Output == 'n' || Output == 'N')
-                    {
-                        system("cls");
-                        printf("\n\t\tGOOD GAME! SEE YOU!\n");
-                        return 0;
-                    }
-                    if(Output == 'y' || Output == 'Y')
-                    {
-                        system("cls");
-                        Mistakes = 10;
-                    }
-                }
-                while(Output != 'Y' && Output != 'y' && Output != 'N' && Output != 'n');
+                Mistakes = Player_Lose(Word_Length, Vector_Hits, Words, Row_Random, &Mistakes);
+                if(Mistakes != 10)
+                    return 0;
             }
 
             if(Mistakes < 7)
@@ -847,5 +825,48 @@ int Restart_Or_Exit()
 }
 //###############################################################################
 
+/// THE PLAYER MISSED THE GAME
+int Player_Lose(int Word_Length, char Vector_Hits[], char Words[][Columns], int Row_Random, int *Mistakes)
+{
+    int Cont;
+    char Output;
 
+    Choose_Color(Blue);
+    printf("\n WORD: ");
+
+    for(Cont = 0; Cont < Word_Length; Cont++)
+    {
+        Choose_Color(White);
+        Vector_Hits[Cont] = Words[Row_Random][Cont];
+        printf(" %c", Vector_Hits[Cont]);
+    }
+
+    Choose_Color(Blue);
+    printf("\n\n   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("\t  WHAT A PITY!!! TRY AGAIN, YOU CAN!!!");
+
+    Choose_Color(Blue);
+    printf("\t    \263 \n   \263");
+
+    Choose_Color(Red);
+    printf("\t      DO WANT TO PLAY AGAIN <Y/N>?");
+
+    Choose_Color(Blue);
+    printf("\t    \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n");
+
+    return Restart_Or_Exit();
+}
+//###############################################################################
 
