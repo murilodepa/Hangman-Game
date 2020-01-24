@@ -89,6 +89,9 @@ void Word_And_Mistakes (int, char [], char []);
 /// WHILE THE PLAYER HAVE POSSIBILITIES
 void Player_Playing (int, char [], char [], char [][Columns], int, int *, int *);
 
+/// NOTICE THAT THE PLAYER LOSE THE GAME
+void Notice_Lose (int *);
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -194,11 +197,7 @@ int main()
             }
 
             if(Mistakes == 6)
-            {
-                printf("YOU LOSE!!!\n");
-                Mistakes++;
-                Sleep(1800);
-            }
+            Notice_Lose(&Mistakes);
 
             if(Mistakes<6)
                 Player_Playing(Word_Length, Vector_Hits, Vector_Mistakes, Words, Row_Random, &Hits, &Mistakes);
@@ -935,5 +934,36 @@ void Player_Playing(int Word_Length, char Vector_Hits[], char Vector_Mistakes[],
         Vector_Mistakes[Cont] = Letter;
         *Mistakes+=1;
     }
+}
+//###############################################################################
+
+/// NOTICE THAT THE PLAYER LOSE THE GAME
+void Notice_Lose(int *Mistakes)
+{
+    int Cont;
+
+    Choose_Color(Blue);
+    printf("   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("\t       WHAT A PITY!!! YOU LOSE!!!");
+
+    Choose_Color(Blue);
+    printf("\t    \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n\n\n\n");
+
+    Choose_Color(White);
+
+    *Mistakes+=1;
+    Sleep(1800);
 }
 //###############################################################################
