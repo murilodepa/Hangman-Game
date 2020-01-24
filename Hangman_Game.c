@@ -59,6 +59,9 @@ void Body (int );
 /// PRITING RIGHT ARM
 void Right_Arm (int );
 
+/// PRITING LEFT ARM
+void Left_Arm (int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -174,28 +177,12 @@ int main()
 
             case 4:
                 Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                          ---------      \n");
-                printf("    |                          | ^   ^ |      \n");
-                printf("    |                          |   .   |      \n");
-                printf("    |                          |  ---  |      \n");
-                printf("    |                          ---------      \n");
-                printf("    |                              |          \n");
-                printf("    |                             /|\\        \n");
-                printf("    |                            / | \\       \n");
-                printf("    |                           /  |  \\      \n");
-                printf("    |                          /   |   \\     \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf(" ___|___                                      \n");
+                Left_Arm(Cont);
+
+                for(Cont = 0; Cont < 4; Cont++)
+                    printf("\n    \263 \n    \263");
+
+                printf("\n \304\304\304\301\304\304\304\n");
                 break;
 
             case 5:
@@ -802,5 +789,20 @@ void Right_Arm(int Cont)
         printf("\n    \263 \n    \263");
 
     printf("\n \304\304\304\301\304\304\304\n");
+}
+//###############################################################################
+
+/// PRITING LEFT ARM
+void Left_Arm(int Cont)
+{
+    Head(Cont);
+
+    printf("\n    \263 \t\t\t\t   \263");
+    printf("\n    \263 \t\t\t       \332\304\304\304\305\304\304\304\277");
+
+    for(Cont = 0; Cont < 2; Cont++)
+        printf("\n    \263 \t\t\t       \263   \263   \263");
+
+    printf("\n    \263 \t\t\t       \305   \263   \305");
 }
 //###############################################################################
