@@ -1,0 +1,51 @@
+50
+Macaco
+Leao
+Tigre de bengala
+Peixe espada
+Jacare
+Coelho
+Cachorro
+Capivara
+Lobo guara
+Suricata
+Cobra
+Tamandua bandeira
+Tartaruga
+Girafa
+Zebra
+Elefante
+Estrela do mar
+Rinoceronte
+Camelo
+Leopardo
+Urso panda
+Canguru
+Javali
+Bufalo
+Pantera
+Pinguim
+Tucano
+Bicho preguica
+Hipopotamo
+Porco espinho
+Cavalo marinho
+Lagarto
+Lontra
+Arara azul
+Tubarao martelo
+Camaleao
+Guaxinim
+Mamute
+Dinossauro
+Coruja
+Dragao de komodo
+Flamingo
+Golfinho
+Baleia jubarte
+Ovelha
+Beija flor
+Morcego
+Formiga
+Onca pintada
+Papagaio
