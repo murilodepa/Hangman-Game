@@ -68,6 +68,9 @@ void Right_Leg (int );
 /// PRITING LEFT LEG
 void Left_Leg (int );
 
+/// CHECK POSSIBILITIES AND PRITING GALLOWS
+void Check_Possibilities_Priting_Gallows (int, int*, int, int*, int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -146,88 +149,7 @@ int main()
 
         while(Mistakes < 8)
         {
-            switch(Mistakes)
-            {
-
-            case 0:
-                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                Basic_Structure_Gallows(Cont1);
-
-                for(Cont1 = 0; Cont1 < 9; Cont1++)
-                    printf("\n    \263 \n    \263 ");
-
-                printf("\n \304\304\304\301\304\304\304\n");
-                break;
-
-            case 1:
-                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-
-                Head(Cont1);
-
-                for(Cont1 = 0; Cont1 < 6; Cont1++)
-                    printf("\n    \263 \n    \263 ");
-
-                printf("\n    \263 \n \304\304\304\301\304\304\304\n");
-                break;
-
-            case 2:
-                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-
-                Body(Cont1);
-                break;
-
-            case 3:
-                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                Right_Arm(Cont1);
-                break;
-
-            case 4:
-                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                Left_Arm(Cont1);
-
-                for(Cont1 = 0; Cont1 < 4; Cont1++)
-                    printf("\n    \263 \n    \263");
-
-                printf("\n \304\304\304\301\304\304\304\n");
-                break;
-
-            case 5:
-                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                Right_Leg(Cont1);
-                break;
-
-            case 6:
-                Game_Info(Quantity_of_Words, Win, Attempts, Word_Length, Mistakes);
-                Left_Leg(Cont1);
-                break;
-
-            default :
-                Game_Info((Quantity_of_Words-=1), Win, (Attempts+=1), Word_Length, Mistakes--);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                          ---------      \n");
-                printf("    |                          | x   x |      \n");
-                printf("    |                          |   .   |      \n");
-                printf("    |                          |   +   |      \n");
-                printf("    |                          ---------      \n");
-                printf("    |                       -------|-------   \n");
-                printf("    |                             /|\\        \n");
-                printf("    |                            / | \\       \n");
-                printf("    |                           /  |  \\      \n");
-                printf("    |                          /   |   \\     \n");
-                printf("    |                             / \\        \n");
-                printf("    |                            /   \\       \n");
-                printf("    |                           /     \\      \n");
-                printf("    |                          /       \\     \n");
-                printf("    |                         /         \\    \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf("    |                                         \n");
-                printf(" ___|___                                      \n");
-            }
-
-            printf("\n\n");
+            Check_Possibilities_Priting_Gallows(Mistakes, &Quantity_of_Words, Win, &Attempts, Word_Length);
 
             if(Mistakes >= 7)
             {
@@ -806,3 +728,71 @@ void Left_Leg(int Cont)
     printf("\n    \263 \n    \263 \n \304\304\304\301\304\304\304\n");
 }
 //###############################################################################
+
+/// CHECK POSSIBILITIES AND PRITING GALLOWS
+void Check_Possibilities_Priting_Gallows(int Mistakes, int *Quantity_of_Words, int Win, int *Attempts, int Word_Length)
+{
+    int Cont;
+
+    switch(Mistakes)
+    {
+
+    case 0:
+        Game_Info(*Quantity_of_Words, Win, *Attempts, Word_Length, Mistakes);
+
+        Basic_Structure_Gallows(Cont);
+
+        for(Cont = 0; Cont < 9; Cont++)
+            printf("\n    \263 \n    \263 ");
+
+        printf("\n \304\304\304\301\304\304\304\n");
+        break;
+
+    case 1:
+        Game_Info(*Quantity_of_Words, Win, *Attempts, Word_Length, Mistakes);
+
+        Head(Cont);
+
+        for(Cont = 0; Cont < 6; Cont++)
+            printf("\n    \263 \n    \263 ");
+
+        printf("\n    \263 \n \304\304\304\301\304\304\304\n");
+        break;
+
+    case 2:
+        Game_Info(*Quantity_of_Words, Win, *Attempts, Word_Length, Mistakes);
+        Body(Cont);
+        break;
+
+    case 3:
+        Game_Info(*Quantity_of_Words, Win, *Attempts, Word_Length, Mistakes);
+        Right_Arm(Cont);
+        break;
+
+    case 4:
+        Game_Info(*Quantity_of_Words, Win, *Attempts, Word_Length, Mistakes);
+        Left_Arm(Cont);
+
+        for(Cont = 0; Cont < 4; Cont++)
+            printf("\n    \263 \n    \263");
+
+        printf("\n \304\304\304\301\304\304\304\n");
+        break;
+
+    case 5:
+        Game_Info(*Quantity_of_Words, Win, *Attempts, Word_Length, Mistakes);
+        Right_Leg(Cont);
+        break;
+
+    case 6:
+        Game_Info(*Quantity_of_Words, Win, *Attempts, Word_Length, Mistakes);
+        Left_Leg(Cont);
+        break;
+
+    default :
+        Game_Info((*Quantity_of_Words-=1), Win, (*Attempts+=1), Word_Length, (Mistakes-1));
+        Left_Leg(Cont);
+    }
+}
+//###############################################################################
+
