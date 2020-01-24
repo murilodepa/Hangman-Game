@@ -86,6 +86,9 @@ int Player_Win (int *, int *, int *, int, int *);
 /// PRITING THE WORD AND MISTAKES
 void Word_And_Mistakes (int, char [], char []);
 
+/// WHILE THE PLAYER HAVE POSSIBILITIES
+void Player_Playing (int, char [], char [], char [][Columns], int, int *, int *);
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -198,48 +201,7 @@ int main()
             }
 
             if(Mistakes<6)
-            {
-                do
-                {
-                    Equal_Letter = 0;
-                    do
-                    {
-                        printf(" LETTER: ");
-                        Letter = getche();
-                        Letter = toupper(Letter);
-                        printf("\n");
-
-                    }
-                    while(isalpha(Letter) != 1);
-
-                    for(Cont1=0; Cont1<Word_Length; Cont1++)
-                    {
-                        if(Letter == Vector_Hits[Cont1] || Letter == Vector_Mistakes[Cont1])
-                        {
-                            Equal_Letter = 1;
-                        }
-                    }
-                }
-                while(Equal_Letter == 1);
-
-                for(Cont1=0; Cont1<Word_Length; Cont1++)
-                {
-                    if(Words[Row_Random][Cont1] == Letter)
-                    {
-                        Vector_Hits[Cont1] = Letter;
-                        Hits++;
-                        Flag_Mistakes=0;
-                    }
-                }
-
-                if(Flag_Mistakes != 0)
-                {
-                    Vector_Mistakes[Cont2] = Letter;
-                    Cont2++;
-                    Mistakes++;
-                }
-                Flag_Mistakes=1;
-            }
+                Player_Playing(Word_Length, Vector_Hits, Vector_Mistakes, Words, Row_Random, &Hits, &Mistakes);
         }
     }
 
@@ -922,5 +884,56 @@ void Word_And_Mistakes(int Word_Length, char Vector_Hits[], char Vector_Mistakes
         printf("%c ", Vector_Mistakes[Cont]);
 
     printf("\n\n");
+}
+//###############################################################################
+
+/// WHILE THE PLAYER HAVE POSSIBILITIES
+void Player_Playing(int Word_Length, char Vector_Hits[], char Vector_Mistakes[], char Words[][Columns], int Row_Random, int *Hits, int *Mistakes)
+{
+    int Equal_Letter=0, Cont=0, Flag_Mistakes=1;
+    char Letter;
+
+    do
+    {
+        Equal_Letter = 0;
+        do
+        {
+            Choose_Color(Green);
+            printf(" LETTER: ");
+
+            Choose_Color(White);
+            Letter = getche();
+            Letter = toupper(Letter);
+            printf("\n");
+        }
+        while(isalpha(Letter) != 1);
+
+        for(Cont = 0; Cont < Word_Length; Cont++)
+        {
+            if(Letter == Vector_Hits[Cont] || Letter == Vector_Mistakes[Cont])
+                Equal_Letter = 1;
+        }
+    }
+    while(Equal_Letter == 1);
+
+    for(Cont = 0; Cont < Word_Length; Cont++)
+    {
+        if(Words[Row_Random][Cont] == Letter)
+        {
+            Vector_Hits[Cont] = Letter;
+            *Hits+=1;
+            Flag_Mistakes=0;
+        }
+    }
+
+    if(Flag_Mistakes != 0)
+    {
+        Cont=0;
+        while(Vector_Mistakes[Cont] != '\0')
+            Cont++;
+
+        Vector_Mistakes[Cont] = Letter;
+        *Mistakes+=1;
+    }
 }
 //###############################################################################
