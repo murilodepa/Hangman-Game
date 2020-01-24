@@ -100,7 +100,7 @@ void Game_Finished ();
 //#################################### MAIN #####################################
 int main()
 {
-    int Cont = 0, Row_Random = 0, Hits = 0, Mistakes = 0, Word_Length = 0, Win = 0, Attempts = 0, Quantity_of_Words = 0;
+    int Cont = 0, Row_Random = 0, Hits = 0, Mistakes = 0, Word_Length = 0, Win = 0, Attempts = 0, Quantity_of_Words;
 
     char Vector_Mistakes[Wrong_Letters], *Vector_Hits;
 
@@ -445,7 +445,7 @@ void Header (int Quantity_of_Words)
 }
 //###############################################################################
 
-/// STARTING THE VARIABLES
+ /// STARTING THE VARIABLES
 void Starting_Variables(int *Row_Random, int *Word_Length, int *Hits, int *Mistakes, int Repeated_Words[], char **Words, char Vector_Mistakes[], char **Vector_Hits, int Quantity_of_Words)
 {
     int Cont=0;
