@@ -71,6 +71,9 @@ void Left_Leg (int );
 /// CHECK POSSIBILITIES AND PRITING GALLOWS
 void Check_Possibilities_Priting_Gallows (int, int*, int, int*, int );
 
+/// EXIT OR RESTART OF GAME
+int Restart_Or_Exit ();
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -795,4 +798,54 @@ void Check_Possibilities_Priting_Gallows(int Mistakes, int *Quantity_of_Words, i
     }
 }
 //###############################################################################
+
+/// EXIT OR RESTART OF GAME
+int Restart_Or_Exit()
+{
+    int Cont;
+    char Output;
+
+    do
+    {
+        Choose_Color(White);
+        Output = getche();
+
+        if(Output == 'n' || Output == 'N')
+        {
+            system("cls");
+
+            Choose_Color(Blue);
+            printf("\n\n   \332");
+
+            for(Cont = 0; Cont < 8; Cont++)
+                printf("\304\304\304\304\304\304");
+
+            printf("\277 \n   \263");
+
+            Choose_Color(Red);
+            printf("\t\t GOOD GAME!!! SEE YOU!!!");
+
+            Choose_Color(Blue);
+            printf("\t    \263 \n   \300");
+
+            for(Cont = 0; Cont < 8; Cont++)
+                printf("\304\304\304\304\304\304");
+
+            printf("\331 \n\n\n\n");
+
+            Choose_Color(White);
+            return 0;
+        }
+
+        if(Output == 'y' || Output == 'Y')
+        {
+            system("cls");
+            return 10;
+        }
+    }
+    while(Output != 'Y' && Output != 'y' && Output != 'N' && Output != 'n');
+}
+//###############################################################################
+
+
 
