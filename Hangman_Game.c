@@ -83,6 +83,9 @@ void Gallows_And_Happy_Person (int );
 /// THE PLAYER WON THE GAME
 int Player_Win (int *, int *, int *, int, int *);
 
+/// PRITING THE WORD AND MISTAKES
+void Word_And_Mistakes (int, char [], char []);
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -171,23 +174,7 @@ int main()
             }
 
             if(Mistakes < 7)
-            {
-                for(Cont1=0; Cont1<Word_Length; Cont1++)
-                {
-                    printf(" %c", Vector_Hits[Cont1]);
-                }
-
-                printf("\n\n");
-
-                printf("Mistakes: ");
-
-                for(Cont1=0; Cont1<Wrong_Letters; Cont1++)
-                {
-                    printf("%c ", Vector_Mistakes[Cont1]);
-                }
-
-                printf("\n\n");
-            }
+                Word_And_Mistakes (Word_Length, Vector_Hits, Vector_Mistakes);
 
             if(Hits == Word_Length)
             {
@@ -912,3 +899,28 @@ int Player_Win(int *Quantity_of_Words, int *Win, int *Attempts, int Word_Length,
 }
 //###############################################################################
 
+/// PRITING THE WORD AND MISTAKES
+void Word_And_Mistakes(int Word_Length, char Vector_Hits[], char Vector_Mistakes[])
+{
+    int Cont;
+
+    Choose_Color(Blue);
+    printf("\n WORD: ");
+
+    Choose_Color(White);
+    for(Cont = 0; Cont < Word_Length; Cont++)
+        printf("%c ", Vector_Hits[Cont]);
+
+    printf("\n\n");
+
+    Choose_Color(Blue);
+    printf(" MISTAKES: ");
+
+    Choose_Color(White);
+
+    for(Cont = 0; Cont < Wrong_Letters; Cont++)
+        printf("%c ", Vector_Mistakes[Cont]);
+
+    printf("\n\n");
+}
+//###############################################################################
