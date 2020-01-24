@@ -47,6 +47,9 @@ void Starting_Variables(int *, int *, int *, int *, int [], char [][Columns], ch
 /// PRINTING GAME INFORMATION
 void Game_Info (int, int, int, int, int );
 
+/// PRITING BASIC STRUCTURE OF GALLOWS
+void Basic_Structure_Gallows (int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -799,5 +802,18 @@ void Game_Info(int Quantity_of_Words, int Win, int Attempts, int Word_Length, in
         printf("\304\304\304\304\304\304");
 
     printf("\331 \n\n");
+}
+//###############################################################################
+
+/// PRITING BASIC STRUCTURE OF GALLOWS
+void Basic_Structure_Gallows(int Cont)
+{
+    Choose_Color(White);
+    printf("    \332");
+
+    for(Cont = 0; Cont < 5; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n    \263 \t\t\t\t   \263 \n    \263 \t\t\t\t   \263");
 }
 //###############################################################################
