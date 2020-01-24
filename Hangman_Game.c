@@ -50,6 +50,9 @@ void Game_Info (int, int, int, int, int );
 /// PRITING BASIC STRUCTURE OF GALLOWS
 void Basic_Structure_Gallows (int );
 
+/// PRITING HEAD
+void Head (int );
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -815,5 +818,18 @@ void Basic_Structure_Gallows(int Cont)
         printf("\304\304\304\304\304\304");
 
     printf("\277 \n    \263 \t\t\t\t   \263 \n    \263 \t\t\t\t   \263");
+}
+//###############################################################################
+
+/// PRITING HEAD
+void Head(int Cont)
+{
+    Basic_Structure_Gallows(Cont);
+
+    printf("\n    \263 \t\t\t       \332\304\304\304\301\304\304\304\277");
+    printf("\n    \263 \t\t\t       \263 ^   ^ \263");
+    printf("\n    \263 \t\t\t       \263   .   \263");
+    printf("\n    \263 \t\t\t       \263  ---  \263");
+    printf("\n    \263 \t\t\t       \300\304\304\304\302\304\304\304\331");
 }
 //###############################################################################
