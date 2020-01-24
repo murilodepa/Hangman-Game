@@ -19,8 +19,7 @@
 #include <time.h>        // "Used the chronological time"
 #include <windows.h>     // "Used to the function "Sleep"
 
-#define Columns 50
-#define Rows  50
+#define Columns 50        // Biggest word in the file, assuming it's 50
 #define Wrong_Letters 10
 
 #define Blue 9
@@ -35,14 +34,17 @@
 /// CHANGES COLOR OF PRINTED CHARACTERS
 void Choose_Color (int );
 
+/// READ FILE WITH WORDS AND RETURN IN MATRIX FORMAT
+char **Read_File_With_Words (int *);
+
 /// CHECKING THE REPEAT WORD
-int Check_Repeat_Word (int []);
+int Check_Repeat_Word (int [], int );
 
 /// PRINTING THE INITIAL HEADER
 void Header (int );
 
 /// STARTING THE VARIABLES
-void Starting_Variables(int *, int *, int *, int *, int [], char [][Columns], char [], char **);
+void Starting_Variables(int *, int *, int *, int *, int [], char **, char [], char **, int );
 
 /// PRINTING GAME INFORMATION
 void Game_Info (int, int, int, int, int );
@@ -75,7 +77,7 @@ void Check_Possibilities_Priting_Gallows (int, int*, int, int*, int );
 int Restart_Or_Exit ();
 
 /// THE PLAYER MISSED THE GAME
-int Player_Lose (int, char [], char [][Columns], int, int *);
+int Player_Lose (int, char [], char **, int, int *);
 
 /// EMPTY HANGMAN AND HAPPY PERSON (WIN)
 void Gallows_And_Happy_Person (int );
@@ -87,7 +89,7 @@ int Player_Win (int *, int *, int *, int, int *);
 void Word_And_Mistakes (int, char [], char []);
 
 /// WHILE THE PLAYER HAVE POSSIBILITIES
-void Player_Playing (int, char [], char [], char [][Columns], int, int *, int *);
+void Player_Playing (int, char [], char [], char **, int, int *, int *);
 
 /// NOTICE THAT THE PLAYER LOSE THE GAME
 void Notice_Lose (int *);
@@ -102,70 +104,19 @@ int main()
 
     char Vector_Mistakes[Wrong_Letters], *Vector_Hits;
 
-    int Repeated_Words[Rows];
+    char **Words = Read_File_With_Words(&Quantity_of_Words);
+
+    int Repeated_Words[Quantity_of_Words];
 
     // Preventing from trash
-    for(Cont = 0; Cont < Rows; Cont++)
+    for(Cont = 0; Cont < Quantity_of_Words; Cont++)
         Repeated_Words[Cont] = 99;
-
-    char Words[Rows][Columns] = {"MACACO",
-                                 "LEAO",
-                                 "TIGRE DE BENGALA",
-                                 "PEIXE ESPADA",
-                                 "JACARE",
-                                 "COELHO",
-                                 "CACHORRO",
-                                 "CAPIVARA",
-                                 "LOBO GUARA",
-                                 "SURICATA",
-                                 "COBRA",
-                                 "TAMANDUA BANDEIRA",
-                                 "TARTARUGA",
-                                 "GIRAFA",
-                                 "ZEBRA",
-                                 "ELEFANTE",
-                                 "ESTRELA DO MAR",
-                                 "RINOCERONTE",
-                                 "CAMELO",
-                                 "LEOPARDO",
-                                 "URSO PANDA",
-                                 "CANGURU",
-                                 "JAVALI",
-                                 "BUFALO",
-                                 "PANTERA",
-                                 "PINGUIM",
-                                 "TUCANO",
-                                 "BICHO PREGUICA",
-                                 "HIPOPOTAMO",
-                                 "PORCO ESPINHO",
-                                 "CAVALO MARINHO",
-                                 "LAGARTO",
-                                 "LONTRA",
-                                 "ARARA AZUL",
-                                 "TUBARAO MARTELO",
-                                 "CAMALEAO",
-                                 "GUAXINIM",
-                                 "MAMUTE",
-                                 "DINOSSAURO",
-                                 "CORUJA",
-                                 "DRAGAO DE KOMODO",
-                                 "FLAMINGO",
-                                 "GOLFINHO",
-                                 "BALEIA JUBARTE",
-                                 "OVELHA",
-                                 "BEIJA FLOR",
-                                 "MORCEGO",
-                                 "FORMIGA",
-                                 "ONCA PINTADA",
-                                 "PAPAGAIO"
-                                };
-
 
     Header(Quantity_of_Words);
 
     while(1)
     {
-        Starting_Variables(&Row_Random, &Word_Length, &Hits, &Mistakes, Repeated_Words, Words, Vector_Mistakes, &Vector_Hits);
+        Starting_Variables(&Row_Random, &Word_Length, &Hits, &Mistakes, Repeated_Words, Words, Vector_Mistakes, &Vector_Hits, Quantity_of_Words);
 
         while(Mistakes < 8)
         {
@@ -225,8 +176,112 @@ void Choose_Color (int Color)
 }
 //###############################################################################
 
+/// READ FILE WITH WORDS AND RETURN IN MATRIX FORMAT
+char **Read_File_With_Words (int *Quantity_of_Words)
+{
+    int Cont1=0, Cont2=0;
+    char Character;
+    char File_Name[100];
+
+    char **Words;
+
+    // Defining a file type variable
+    FILE *Input_File;
+
+    Choose_Color(Blue);
+    printf("\n ENTER FILE NAME: ");
+
+    Choose_Color(White);
+    gets(File_Name);
+
+    // Opening file to read data
+    Input_File = fopen(File_Name, "r");
+
+    if(Input_File == NULL)
+    {
+        system("cls");
+
+        Choose_Color(Blue);
+        printf("\n   \332");
+
+        for(Cont1 = 0; Cont1 < 8; Cont1++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\277 \n   \263");
+
+        Choose_Color(Red);
+        printf("\t\t  ERROR OPENING FILE!!!");
+
+        Choose_Color(Blue);
+        printf("\t\t    \263 \n   \300");
+
+        for(Cont1 = 0; Cont1 < 8; Cont1++)
+            printf("\304\304\304\304\304\304");
+
+        printf("\331 \n\n\n\n");
+
+        Choose_Color(White);
+
+        exit(1);
+    }
+
+    // Reading of the quantity of Words
+    fscanf(Input_File,"%d", Quantity_of_Words);
+
+    // Allocates the rows of the matrix
+    Words = (char **) calloc(*Quantity_of_Words, sizeof(char*));
+
+    if(Words == NULL)
+        exit(1);
+
+    // Allocates the columns of the matrix
+    for(Cont1 = 0; Cont1 < *Quantity_of_Words; Cont1++)
+    {
+        Words[Cont1] = (char *) calloc (Columns, sizeof(char));
+        if(Words[Cont1] == NULL)
+            exit(1);
+    }
+    Cont1=0;
+
+    while(Cont1 < *Quantity_of_Words)
+    {
+        Cont2=0;
+
+        while(isspace(Character) || Character == '\n' || (!(isalpha(Character))))
+            Character = fgetc(Input_File);
+
+        while(((isalpha(Character)) || (isspace(Character))) && ((Character != '\n')))
+        {
+            Character = toupper(Character);
+            Words[Cont1][Cont2] = Character;
+            Cont2+=1;
+            Character = fgetc(Input_File);
+        }
+
+        Words[Cont1][Cont2] = '\0';
+
+        Cont1+=1;
+    }
+
+    /* Priting quantity of Words and matrix */
+    /*
+    printf("\n Quantity_of_Words: %d ", *Quantity_of_Words);
+
+    for(Cont1 = 0; Cont1 < *Quantity_of_Words; Cont1++)
+        printf("\n %d: %s", Cont1, Words[Cont1]);
+    Sleep(5000);
+    */
+
+    // Closing file
+    fclose(Input_File);
+
+    // Returns the pointer to the array
+    return (Words);
+}
+//###############################################################################
+
 /// CHECKING THE REPEAT WORD
-int Check_Repeat_Word (int Repeated_Words[])
+int Check_Repeat_Word (int Repeated_Words[], int Quantity_of_Words)
 {
     int Aux, Cont, Row_Random;
 
@@ -236,7 +291,7 @@ int Check_Repeat_Word (int Repeated_Words[])
         Row_Random = (rand () % 50);
         Aux=0;
 
-        for(Cont=0; Cont<Rows; Cont++)
+        for(Cont=0; Cont<Quantity_of_Words; Cont++)
         {
             if(Repeated_Words[Cont] == Row_Random)
                 Aux=1;
@@ -391,7 +446,7 @@ void Header (int Quantity_of_Words)
 //###############################################################################
 
 /// STARTING THE VARIABLES
-void Starting_Variables(int *Row_Random, int *Word_Length, int *Hits, int *Mistakes, int Repeated_Words[], char Words[][Columns], char Vector_Mistakes[], char **Vector_Hits)
+void Starting_Variables(int *Row_Random, int *Word_Length, int *Hits, int *Mistakes, int Repeated_Words[], char **Words, char Vector_Mistakes[], char **Vector_Hits, int Quantity_of_Words)
 {
     int Cont=0;
 
@@ -401,7 +456,7 @@ void Starting_Variables(int *Row_Random, int *Word_Length, int *Hits, int *Mista
     *Mistakes=0;
     *Word_Length=0;
 
-    *Row_Random = Check_Repeat_Word(Repeated_Words);
+    *Row_Random = Check_Repeat_Word(Repeated_Words, Quantity_of_Words);
 
     while(Repeated_Words[Cont] != 99)
         Cont+=1;
@@ -734,7 +789,7 @@ int Restart_Or_Exit()
 //###############################################################################
 
 /// THE PLAYER MISSED THE GAME
-int Player_Lose(int Word_Length, char Vector_Hits[], char Words[][Columns], int Row_Random, int *Mistakes)
+int Player_Lose(int Word_Length, char Vector_Hits[], char **Words, int Row_Random, int *Mistakes)
 {
     int Cont;
     char Output;
@@ -885,7 +940,7 @@ void Word_And_Mistakes(int Word_Length, char Vector_Hits[], char Vector_Mistakes
 //###############################################################################
 
 /// WHILE THE PLAYER HAVE POSSIBILITIES
-void Player_Playing(int Word_Length, char Vector_Hits[], char Vector_Mistakes[], char Words[][Columns], int Row_Random, int *Hits, int *Mistakes)
+void Player_Playing(int Word_Length, char Vector_Hits[], char Vector_Mistakes[], char **Words, int Row_Random, int *Hits, int *Mistakes)
 {
     int Equal_Letter=0, Cont=0, Flag_Mistakes=1;
     char Letter;
