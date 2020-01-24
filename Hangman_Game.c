@@ -80,6 +80,9 @@ int Player_Lose (int, char [], char [][Columns], int, int *);
 /// EMPTY HANGMAN AND HAPPY PERSON (WIN)
 void Gallows_And_Happy_Person (int );
 
+/// THE PLAYER WON THE GAME
+int Player_Win (int *, int *, int *, int, int *);
+
 //#################################### MAIN #####################################
 int main()
 {
@@ -185,56 +188,12 @@ int main()
 
                 printf("\n\n");
             }
+
             if(Hits == Word_Length)
             {
-                Sleep(1000);
-                Game_Info((Quantity_of_Words-=1), (Win+=1), (Attempts+=1), Word_Length, Mistakes);
-                printf("    +------------------------------+          \n");
-                printf("    |                              |          \n");
-                printf("    |                              |          \n");
-                printf("    |                             /-\\        \n");
-                printf("    |                            /   \\       \n");
-                printf("    |                           /     \\      \n");
-                printf("    |                          ---------      \n");
-                printf("    |           ---------                     \n");
-                printf("    |      _    | ^   ^ |    _                \n");
-                printf("    |      |    |   .   |    |                \n");
-                printf("    |      \\    | [___] |    /               \n");
-                printf("    |       \\   ---------   /                \n");
-                printf("    |        \\      |      /                 \n");
-                printf("    |         \\-----|-----/                  \n");
-                printf("    |               |                         \n");
-                printf("    |               |                         \n");
-                printf("    |               |                         \n");
-                printf("    |              / \\                       \n");
-                printf("    |             /   \\                      \n");
-                printf("    |            /     \\                     \n");
-                printf("    |           /       \\                    \n");
-                printf(" ___|___     __/         \\__                 \n");
-
-                printf("\n\n");
-                printf("\t     CONGRATULATIONS!!!\n");
-                printf("      YOU ADVINED THE WORD!\n\n");
-                printf("    DO WANT TO PLAY AGAIN <Y / N> !?\n");
-
-                do
-                {
-                    Output = getche();
-
-                    if(Output == 'n' || Output == 'N')
-                    {
-                        system("cls");
-                        printf("\n\t GOOD GAME! SEE YOU!\n");
-                        return 0;
-                    }
-                    if(Output == 'y' || Output == 'Y')
-                    {
-                        Mistakes = 10;
-                        system("cls");
-                    }
-                }
-
-                while(Output != 'Y' && Output != 'y' && Output != 'N' && Output != 'n');
+                Mistakes = Player_Win(&Quantity_of_Words, &Win, &Attempts, Word_Length, &Mistakes);
+                if(Mistakes != 10)
+                    return 0;
             }
 
             if(Quantity_of_Words <= 0)
@@ -895,5 +854,61 @@ void Gallows_And_Happy_Person(int Cont)
 }
 //###############################################################################
 
+/// THE PLAYER WON THE GAME
+int Player_Win(int *Quantity_of_Words, int *Win, int *Attempts, int Word_Length, int *Mistakes)
+{
+    int Cont;
 
+    Sleep(1000);
+    Game_Info((*Quantity_of_Words-=1), (*Win+=1), (*Attempts+=1), Word_Length, *Mistakes);
+
+    Choose_Color(Blue);
+    printf("   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("   CONGRATULATIONS YOU HIT THE COMPLETE WORD!");
+
+    Choose_Color(Blue);
+    printf("   \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n");
+
+    Gallows_And_Happy_Person(Cont);
+
+    Choose_Color(Blue);
+    printf("\n   \332");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\277 \n   \263");
+
+    Choose_Color(Red);
+    printf("   CONGRATULATIONS!!! YOU ADVINED THE WORD!");
+
+    Choose_Color(Blue);
+    printf("\t    \263 \n   \263");
+
+    Choose_Color(Red);
+    printf("\t      DO WANT TO PLAY AGAIN <Y/N>?");
+
+    Choose_Color(Blue);
+    printf("\t    \263 \n   \300");
+
+    for(Cont = 0; Cont < 8; Cont++)
+        printf("\304\304\304\304\304\304");
+
+    printf("\331 \n");
+
+    return Restart_Or_Exit();
+}
+//###############################################################################
 
