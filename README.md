@@ -6,37 +6,37 @@
 
 * Trata-se de o primeiro projeto realizado na faculdade utilizado a linguagem de programação C, projeto no qual foi implementado uma leitura de arquivos, ou seja, o usuário mesmo pode montar as palavras que deseja inserir no jogo, sendo de um só tema ou variado. Entretanto, esse arquivo precisa ser padronizado, primeiramente indicando quantas palavras que contém no total, e depois uma palavra em baixo da outra, de preferência separado pelo caractere *Enter*, assim facilita na leitura do arquivo e na manipulação, pois é passado todas essas informações para uma matriz que será alocada dinamicamente conforme o número de palavras digitada pelo usuário. Como todo jogo da forca, o usuário tem que adivinhar qual palavra o programa escolheu aleatoriamente, vendo apenas a quantidade de letras que a palavra contém, como pode ser observado na imagem abaixo. O jogador tem 6 possibilidades, podendo estar verificando as letras incorretas digitas, e se caso não acertar em 6 tentativas o programa exibe a palavra e pergunta se deseja jogar novamente, se caso sim, escolhe outro animal aleatório sem repetir um que já tenha sido sorteado.  
 
-* Exemplo de como deve ser criado o arquivo para jogar com as palavras escolhidas pelo usuário, lembrando que o jogo vem com dois arquivos texto, um com 50 animais e o outro com 40 frutas, esses arquivos foram utilizados para testar o programa e podem ser usados para jogar.  
+* **Exemplo de como deve ser criado o arquivo para jogar com as palavras escolhidas pelo usuário, lembrando que o jogo vem com dois arquivos texto, um com 50 animais e o outro com 40 frutas, esses arquivos foram utilizados para testar o programa e podem ser usados para jogar.  
 ![image](https://user-images.githubusercontent.com/56207941/73045576-2e650e00-3e4d-11ea-92fd-8994971f3aba.png)
 
-* Primeiramente antes de jogar, pede para digitar o nome do arquivo desejado.  
+* **Primeiramente antes de jogar, pede para digitar o nome do arquivo desejado.  
 ![image](https://user-images.githubusercontent.com/56207941/73043816-a2031d00-3e45-11ea-9dff-d918c770b056.png)  
 
-* Depois aguarda o jogador pressionar a tecla *Enter*, que é o *Start* do jogo.  
+* **Depois aguarda o jogador pressionar a tecla *Enter*, que é o *Start* do jogo.  
 ![image](https://user-images.githubusercontent.com/56207941/73043847-c7902680-3e45-11ea-869b-5e1ce5bdfed0.png)  
 
-* Jogador com 6 possibilidades!  
+* **Jogador com 6 possibilidades!  
 ![image](https://user-images.githubusercontent.com/56207941/73043961-4b4a1300-3e46-11ea-8724-ed1014a80d24.png)  
 
-* Jogador com 5 possibilidades!  
+* **Jogador com 5 possibilidades!  
 ![image](https://user-images.githubusercontent.com/56207941/73044022-95cb8f80-3e46-11ea-8906-c3d27ba95517.png)  
 
-* Jogador com 4 possibilidades!  
+* **Jogador com 4 possibilidades!  
 ![image](https://user-images.githubusercontent.com/56207941/73044034-abd95000-3e46-11ea-9386-8560a6906b3b.png)  
 
-* Jogador com 3 possibilidades!  
+* **Jogador com 3 possibilidades!  
 ![image](https://user-images.githubusercontent.com/56207941/73044063-c1e71080-3e46-11ea-9299-02114e94336f.png)  
 
-* Jogador com 2 possibilidades!  
+* **Jogador com 2 possibilidades!  
 ![image](https://user-images.githubusercontent.com/56207941/73044084-da572b00-3e46-11ea-88a4-cba8d842c71d.png)  
 
-* Jogador com 1 possibilidades!  
+* **Jogador com 1 possibilidades!  
 ![image](https://user-images.githubusercontent.com/56207941/73044106-f35fdc00-3e46-11ea-99b2-ea0e4c2a605e.png)  
 
-* Jogador não tem nenhuma tentativa!  
+* **Jogador não tem nenhuma tentativa!  
 ![image](https://user-images.githubusercontent.com/56207941/73044134-0c688d00-3e47-11ea-8809-48f3d29fe5bc.png)  
 
-* Jogador acertou a palavra!  
+* **Jogador acertou a palavra!  
 ![image](https://user-images.githubusercontent.com/56207941/73044198-45a0fd00-3e47-11ea-8185-72b3264e28b4.png)  
 
 ### Pré-requisitos
